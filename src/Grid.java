@@ -23,12 +23,44 @@ public class Grid
 	
 	public void update()
 	{
-		for(int i = 0; i < grid.length; i ++)
+		
+		for(int i = 0; i < grid.length; i++)
 		{
 			for(int j = 0; j < grid[0].length; j++)
 			{
-				grid[i][j] = new Cell();
+				int counter = 0;
 				
+				for(int a = i-1; a < i+1; a++)
+				{
+					for(int b = j-1; b<b+1; b++)
+					{
+						
+					
+						if(grid[a][b] != grid[i][j])
+						{
+						
+							if(grid[a][b].isAlive() == true)
+							{
+								counter ++; 
+							}
+						}
+					}
+				}
+
+				if(counter < 2)
+				{
+					grid[i][j].setAlive(false);
+				}
+				
+				if(counter > 3)
+				{
+					grid[i][j].setAlive(false);
+				}
+				
+				if(counter == 3)
+				{
+					grid[i][j].setAlive(true);
+				}
 			}
 		}
 	}
