@@ -9,7 +9,7 @@ public class Cell
 	private int x;
 	private int y;
 	
-	public static final int CELL_SIDE_LENGTH = 10;
+	public static final int CELL_SIDE_LENGTH = 5;
 	
 	public Cell(int x, int y)
 	{
@@ -36,7 +36,7 @@ public class Cell
 			graphics.setColor(Color.WHITE);
 		}
 		
-		graphics.fillRect(x, y, CELL_SIDE_LENGTH, CELL_SIDE_LENGTH);
+		graphics.fillRect(x*CELL_SIDE_LENGTH, y*CELL_SIDE_LENGTH, CELL_SIDE_LENGTH, CELL_SIDE_LENGTH);
 	}
 	
 	public void setAlive(boolean isAlive)
