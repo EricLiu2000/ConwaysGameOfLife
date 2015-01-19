@@ -4,7 +4,8 @@ import java.awt.Graphics;
 public class Grid
 {
 	private Cell[][] grid;
-
+	public Cell[][] getGrid() { return grid;};
+	public void setGrid(Cell[][] grid) {this.grid = grid;}
 	
 	/*
 	 * Makes new grids(arrangements of cells)
@@ -18,7 +19,7 @@ public class Grid
 		{
 			for(int j = 0; j < width; j++)
 			{
-				if((int)(2*Math.random()) == 0)
+				if((int)(2*Math.random()) != -1)
 				{
 					grid[i][j] = new Cell(i, j);
 				}
@@ -84,7 +85,6 @@ public class Grid
 				{
 					setterGrid[i][j].setAlive(false);
 				}
-				
 				if(counter > 3)
 				{
 					setterGrid[i][j].setAlive(false);
@@ -111,5 +111,15 @@ public class Grid
 				grid[i][j].draw(graphics);
 			}
 		}
+		
+		for(int i = 0; i < grid.length; i++)
+			{
+			for(int j = 0; j < grid[0].length; j++)
+			
+				{
+				graphics.drawLine(i, j, Math.max(i+1, grid.length), j);
+				graphics.drawLine(i, j, i, Math.max(j+1, grid[0].length));
+				}
+			}
 	}
 }

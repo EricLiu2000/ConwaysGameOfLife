@@ -10,6 +10,7 @@ public class Cell
 	private int y;
 	
 	public static final int CELL_SIDE_LENGTH = 5;
+			
 	
 	public Cell(int x, int y)
 	{
